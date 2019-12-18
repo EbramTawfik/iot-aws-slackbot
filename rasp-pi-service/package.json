@@ -1,0 +1,28 @@
+{
+  "name": "rasp-pi-service",
+  "version": "1.0.0",
+  "description": "A raspberry pi automation server send data to AWS.",
+  "main": "gpio-server.js",
+  "scripts": {
+    "start": "npm run build && npm run watch",
+    "build": "npm run build-ts",
+    "serve": "node dist/gpio-server.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node,pigpio\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\"",
+    "test": "jest --forceExit --coverage",
+    "build-ts": "tsc",
+    "watch-ts": "tsc-watch --onSuccess \"nodemon dist/gpio-server.js\"",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "author": "Ebram Tawfik",
+  "license": "MIT",
+  "dependencies": {
+    "onoff": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.18",
+    "concurrently": "^5.0.1",
+    "tsc-watch": "^4.0.0",
+    "tslint": "^5.10.0",
+    "typescript": "^3.7.3"
+  }
+}

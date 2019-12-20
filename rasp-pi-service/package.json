@@ -21,6 +21,7 @@
   "devDependencies": {
     "@types/node": "^12.12.18",
     "concurrently": "^5.0.1",
+    "nodemon": "^2.0.2",
     "tsc-watch": "^4.0.0",
     "tslint": "^5.10.0",
     "typescript": "^3.7.3"

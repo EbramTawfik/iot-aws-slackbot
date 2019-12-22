@@ -1,12 +1,14 @@
 import { Gpio, BinaryValue } from 'onoff';
 import { connect, Client, Packet, IPublishPacket } from 'mqtt';
 import { Helper } from './Helper';
+import { AwsConnection } from './AwsConnection';
 
 
 
 
 class GpioServer {
     private client: Client;
+    private awsConnection: AwsConnection;
     constructor() {
         try {
 
@@ -16,7 +18,8 @@ class GpioServer {
 
             console.log("Service Started...");
 
-            this.setupMQTT();
+            this.setupAWS();
+            // this.setupMQTT();
             this.setupGPIO();
 
             console.log("-------------------------");
@@ -29,8 +32,13 @@ class GpioServer {
         }
     }
 
+    private setupAWS() {
+        this.awsConnection = new AwsConnection(); 
+        this.awsConnection.Init();
+    }  
+ 
     private setupGPIO(): void {
-        //Button GPIO Setup
+        //Button GPIO Setup 
         const button = new Gpio(4, "in", "falling");
         button.watch((err, value) => this.onButtonChange(err, value));
 
@@ -45,9 +53,10 @@ class GpioServer {
 
         if (value === Gpio.LOW) {
             console.log("Button Pressed...");
-            this.client.publish(pub_topic, "PRESSED");
+            this.awsConnection.Publish(pub_topic, "PRESSED");
+            //this.client.publish(pub_topic, "PRESSED");
             Helper.Delay(200);
-        }
+        } 
 
     }
 

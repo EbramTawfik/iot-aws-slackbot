@@ -16,10 +16,12 @@
   "author": "Ebram Tawfik",
   "license": "MIT",
   "dependencies": {
+    "aws-iot-device-sdk": "^2.2.1",
     "mqtt": "^3.0.0",
     "onoff": "^5.0.0"
   },
   "devDependencies": {
+    "@types/aws-iot-device-sdk": "^2.2.0",
     "@types/node": "^12.12.18",
     "concurrently": "^5.0.1",
     "nodemon": "^2.0.2",

@@ -33,10 +33,10 @@ class GpioServer {
     }
 
     private setupAWS() {
-        this.awsConnection = new AwsConnection(); 
+        this.awsConnection = new AwsConnection();
         this.awsConnection.Init();
-    }  
- 
+    }
+
     private setupGPIO(): void {
         //Button GPIO Setup 
         const button = new Gpio(4, "in", "falling");
@@ -53,10 +53,17 @@ class GpioServer {
 
         if (value === Gpio.LOW) {
             console.log("Button Pressed...");
-            this.awsConnection.Publish(pub_topic, "PRESSED");
+            const message = {
+                "buttom": {
+                    "id": 1,
+                    "name": "slackbot",
+                    "state": "PRESSED"
+                }
+            };
+            this.awsConnection.Publish(pub_topic, JSON.stringify(message));
             //this.client.publish(pub_topic, "PRESSED");
             Helper.Delay(200);
-        } 
+        }
 
     }
 

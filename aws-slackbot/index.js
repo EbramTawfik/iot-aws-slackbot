@@ -29,7 +29,7 @@ function processEvent(event, context, callback) {
         name: slackbot_name
     });
     console.log('Received event:', event);
-    const payload = JSON.stringify(event);
+    const payload = `Message from ${event.name} : ${event.message} `;
 
     butlerbot.postMessageToChannel(slackbot_channel, "", {
         as_user: 'true',

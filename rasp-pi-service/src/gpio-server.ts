@@ -54,11 +54,8 @@ class GpioServer {
         if (value === Gpio.LOW) {
             console.log("Button Pressed...");
             const message = {
-                "buttom": {
-                    "id": 1,
-                    "name": "slackbot",
-                    "state": "PRESSED"
-                }
+                "name": "Ebram IoT device at home",
+                "message": "🎄 🎅 😉 Merry Christmas and Happy New Year 🎄 🎅 😉"
             };
             this.awsConnection.Publish(pub_topic, JSON.stringify(message));
             //this.client.publish(pub_topic, "PRESSED");

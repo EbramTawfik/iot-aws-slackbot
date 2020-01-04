@@ -54,7 +54,7 @@ class GpioServer {
         if (value === Gpio.LOW) {
             console.log("Button Pressed...");
             const message = {
-                "name": "Ebram IoT device at home",
+                "name": "Ebram iOT device at home",
                 "message": "🎄 🎅 😉 Merry Christmas and Happy New Year 🎄 🎅 😉"
             };
             this.awsConnection.Publish(pub_topic, JSON.stringify(message));

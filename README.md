@@ -6,5 +6,6 @@ iOT AWS Slack bot (Nodejs   AWS iOT Core   AWS Lambda)
 
 ![alt text](https://github.com/EbramTawfik/iot-aws-slackbot/blob/master/res/slackbot.PNG)
 
+Video:
 
-[![Watch the video](https://github.com/EbramTawfik/iot-aws-slackbot/blob/master/res/slackbot.PNG)](https://youtu.be/iGUNO3WZVYc)
+[![Watch the video](https://github.com/EbramTawfik/iot-aws-slackbot/blob/master/res/vid.PNG)](https://youtu.be/iGUNO3WZVYc)
